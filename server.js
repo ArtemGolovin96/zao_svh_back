@@ -270,6 +270,7 @@ app.post("/agro-calc-obj",  function (req, res) {
     //   res.status(500).json("Ошибка");
     // }
     res.status(200).json(res.insertedId);
+    console.log(body)
   })
 
 });
