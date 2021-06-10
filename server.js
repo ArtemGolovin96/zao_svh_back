@@ -221,7 +221,6 @@ app.post("/admin", function (req, res) {
 
 app.get("/agro", function (req, res) {
   console.log("Произошла перезагрузка страницы Agro");
-  // const collection = db.collection('spaces');
   Space.find({}).then((space) => {
     if(!space) {
       res.status(500).send("Ошибка")
@@ -265,7 +264,7 @@ app.post("/agro-calc", upload.single('file'),  function (req, res) {
 app.post("/agro-calc-obj",  function (req, res) {
   const body = req.body;
   const collection = db.collection('spaces');
-  Space.insertMany(body, (err, res) => {
+  Space.insertOne(body, (err, res) => {
     // if(err) {
     //   res.status(500).json("Ошибка");
     // }
