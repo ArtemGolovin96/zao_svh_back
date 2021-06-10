@@ -274,6 +274,6 @@ app.post("/agro-calc-obj",  function (req, res) {
 
 });
 
-app.listen(7778, () => {
-  console.log("СЕРВЕР ЗАПУЩЕН");
+app.listen(process.env.PORT || 7788, () => {
+  console.log("СЕРВЕР РАБОТАЕТ");
 });
