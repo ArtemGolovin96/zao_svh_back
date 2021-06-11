@@ -14,12 +14,6 @@ const mongoose = require("mongoose");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.all("*", function (req, res, next) {
-  res.set("Access-Control-Allow-Origin", "*");
-  res.set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "origin, content-type, accept");
-  next();
-});
 
 mongoose.connect("mongodb+srv://Artem:12345@clustertest.b5mrj.mongodb.net/MyFinalPrjDB?retryWrites=true&w=majority");
 const db = mongoose.connection;
@@ -214,9 +208,9 @@ app.post("/admin", function (req, res) {
 
   if (arrOfUSers.includes(data)) {
     res.status(200).send("Логин успешно зарегестрирован");
-  // } else {
-  //   res.status(500).send("Ошибка добавления. Обратитесь к разработчику");
-  // }
+  } else {
+    res.status(500).send("Ошибка добавления. Обратитесь к разработчику");
+  }
 });
 
 app.get("/agro", function (req, res) {
