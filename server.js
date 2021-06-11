@@ -262,12 +262,13 @@ app.post("/agro-calc", upload.single('file'),  function (req, res) {
 
 
 app.post("/agro-calc-obj",  function (req, res) {
+  console.log(res)
   const body = req.body;
   const collection = db.collection('spaces');
-  Space.insertOne(body, (err, res) => {
-    // if(err) {
-    //   res.status(500).json("Ошибка");
-    // }
+  Space.create(body, (err, res) => {
+    if(err) {
+      res.status(500).json("Ошибка");
+    }
     res.status(200).json(res.insertedId);
   })
 
