@@ -214,9 +214,9 @@ app.post("/admin", function (req, res) {
 
   if (arrOfUSers.includes(data)) {
     res.status(200).send("Логин успешно зарегестрирован");
-  } else {
-    res.status(500).send("Ошибка добавления. Обратитесь к разработчику");
-  }
+  // } else {
+  //   res.status(500).send("Ошибка добавления. Обратитесь к разработчику");
+  // }
 });
 
 app.get("/agro", function (req, res) {
